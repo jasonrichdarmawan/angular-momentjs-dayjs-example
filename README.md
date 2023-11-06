@@ -1,3 +1,8 @@
+# Summary
+
+- momentjs can be migrated with dayjs.
+- moment-timezone can't be migrated with dayjs/plugin/timezone because dayjs.tz.guess() do not have a fallback.
+
 # AngularMomentjsDayjsExample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.

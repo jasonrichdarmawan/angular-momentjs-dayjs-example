@@ -1,1 +1,102 @@
 <p>dayjs works!</p>
+<table>
+    <tr>
+        <td>startTime:</td>
+        <td>{{startTime}}</td>
+    </tr>
+    <tr>
+        <td>dayjs(startTime).toString(): </td>
+        <td>{{startDateToString}}</td>
+    </tr>
+    <tr>
+        <td>dayjs(startTime).format("YYYY-MM-DD"):</td>
+        <td>{{startDateFormatYYYYMMDD}}</td>
+    </tr>
+    <tr>
+        <td>dayjs(startTime).format("MMM Do"):</td>
+        <td>{{startDateFormatMMMDo}}</td>
+    </tr>
+    <tr>
+        <td>dayjs(startTime).format("MM-DD-YYYY"):</td>
+        <td>{{startDateFormatMMDDYYYY}}</td>
+    </tr>
+    <tr>
+        <td>dayjs(startTime).format("MMM D, YYYY, h:mm a"):</td>
+        <td>{{startDateFormatMMMDYYYYhmma}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs().isBefore(dayjs(this.startTime)):</td>
+        <td>{{isBeforeStartTime}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs(startTime).calendar()</td>
+        <td>{{startDateCalendar}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs(startTime).format('L') === dayjs().format('L') ? 'Today' : dayjs(startTime).format('L')</td>
+        <td>{{startDateFormatL}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs(startTime).startOf('day').valueOf()</td>
+        <td>{{startDateStartOfDay}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs(new Date(startTime).getTime()).format('YYYY-MM-DDTHH:mm:ss+08:00'):</td>
+        <td>{{startDateFormatYYYYMMDDTHHMMSS}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs().toString():</td>
+        <td>{{nowToString}}</td>
+    </tr>
+    <tr>
+        <td>dayjs().format("MM-DD-YYYY"):</td>
+        <td>{{nowFormatMMDDYYYY}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs().add(30, 'days').valueOf():</td>
+        <td>{{nowAdd}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs().format("dddd"):</td>
+        <td>{{nowFormatdddd}}</td>
+    </tr>
+
+    <tr>
+        <td>date:</td>
+        <td>{{date}}</td>
+    </tr>
+    <tr>
+        <td>date === dayjs().format("MM-DD-YYYY"):</td>
+        <td>{{today}}</td>
+    </tr>
+    <tr>
+        <td>date === dayjs().subtract(1, 'day').format('MM-DD-YYYY'):</td>
+        <td>{{yesterday}}</td>
+    </tr>
+    <tr>
+        <td>dayjs(date, 'MM-DD-YYYY').format('dddd, MMMM DD, YYYY'):</td>
+        <td>{{dateFormatDDDDMMMMDDYYYY}}</td>
+    </tr>
+    <tr>
+        <td>dayjs(date).format('MMMM DD, YYYY'):</td>
+        <td>{{dateFormatMMMMDDYYYY}}</td>
+    </tr>
+
+    <tr>
+        <td>Intl.supportedValuesOf("timeZone"):</td>
+        <td>{{tzNames}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs.tz.guess():</td>
+        <td>{{tzGuess}}</td>
+    </tr>
+</table>
