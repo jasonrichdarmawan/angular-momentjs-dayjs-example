@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayjsPagePage } from './dayjs-page.page';
+import { MomentjsBootstrap } from './momentjs.bootstrap';
 
-describe('DayjsPagePage', () => {
-  let component: DayjsPagePage;
-  let fixture: ComponentFixture<DayjsPagePage>;
+describe('MomentjsBootstrap', () => {
+  let component: MomentjsBootstrap;
+  let fixture: ComponentFixture<MomentjsBootstrap>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DayjsPagePage ]
+      declarations: [ MomentjsBootstrap ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DayjsPagePage);
+    fixture = TestBed.createComponent(MomentjsBootstrap);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

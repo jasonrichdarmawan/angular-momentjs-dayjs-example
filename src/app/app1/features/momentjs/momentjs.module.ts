@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MomentjsRoutingModule } from './momentjs-routing.module';
+import { MomentjsBootstrap } from './momentjs.bootstrap';
+import { NavModule } from './common/presentation/components/nav/nav.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MomentjsBootstrap
+  ],
   imports: [
     CommonModule,
-    MomentjsRoutingModule
+    MomentjsRoutingModule,
+    NavModule,
   ]
 })
 export class MomentjsModule { }
