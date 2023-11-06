@@ -40,6 +40,8 @@ export class MomentjsPage implements OnInit {
   tzNames: string[];
 
   tzGuess: string;
+  tzString: string;
+  tzZoneAbbr: string;
 
   constructor() {
     this.startTime = "2023-11-06 20:30:26.123";
@@ -73,6 +75,8 @@ export class MomentjsPage implements OnInit {
     this.tzNames = momentTz.tz.names();
 
     this.tzGuess = momentTz.tz.guess();
+    this.tzString = momentTz.tz(moment.tz.guess()).toDate().toISOString();
+    this.tzZoneAbbr = momentTz.tz('Asia/Kuala_Lumpur').zoneAbbr();
   }
 
   ngOnInit(): void {

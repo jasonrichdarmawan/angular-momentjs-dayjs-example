@@ -10,7 +10,6 @@ dayjs.extend(calendar);
 dayjs.extend(localizedFormat);
 dayjs.extend(utc)
 dayjs.extend(timezone);
-dayjs.tz.setDefault("America/New_York")
 
 @Component({
   selector: 'app-dayjs',
@@ -48,6 +47,8 @@ export class DayjsPage implements OnInit {
 
   tzNames: string[];
   tzGuess: string;
+  tzString: string;
+  tzZoneAbbr: string;
 
   constructor() {
     this.startTime = "2023-11-06 20:30:26.123";
@@ -79,7 +80,10 @@ export class DayjsPage implements OnInit {
     this.dateFormatMMMMDDYYYY = dayjs(this.date).format('MMMM DD, YYYY');
 
     this.tzNames = Intl.supportedValuesOf("timeZone");
-    this.tzGuess = dayjs(new Date().toLocaleString("en-ID", {timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone})).format('h:mA');
+    this.tzGuess = dayjs.tz.guess();
+
+    this.tzString = dayjs.tz(dayjs.tz.guess()).toDate().toISOString();
+    this.tzZoneAbbr = dayjs().tz('Asia/Kuala_Lumpur').format('z');
   }
 
   ngOnInit(): void {
