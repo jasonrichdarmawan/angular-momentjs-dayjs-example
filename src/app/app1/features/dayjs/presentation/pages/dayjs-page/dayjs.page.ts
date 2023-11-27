@@ -5,11 +5,13 @@ import * as calendar from 'dayjs/plugin/calendar';
 import * as localizedFormat from 'dayjs/plugin/localizedFormat';
 import * as utc from 'dayjs/plugin/utc';
 import * as timezone from 'dayjs/plugin/timezone';
+import * as customParseFormat from 'dayjs/plugin/customParseFormat';
 dayjs.extend(advancedFormat);
 dayjs.extend(calendar);
 dayjs.extend(localizedFormat);
 dayjs.extend(utc)
 dayjs.extend(timezone);
+dayjs.extend(customParseFormat);
 
 @Component({
   selector: 'app-dayjs',
@@ -17,6 +19,8 @@ dayjs.extend(timezone);
   styleUrls: ['./dayjs.page.scss']
 })
 export class DayjsPage implements OnInit {
+  dayjs = dayjs;
+
   startTime: string;
   startDateToString: string;
   startDateFormatYYYYMMDD: string;
@@ -50,6 +54,15 @@ export class DayjsPage implements OnInit {
   tzString: string;
   tzZoneAbbr: string;
 
+  tzStart: Date;
+  tzStartWrong: Date;
+
+  tzNewDate: string;
+
+  tzFormat: string;
+
+  tzThreeParameter: Date;
+
   constructor() {
     this.startTime = "2023-11-06 20:30:26.123";
     this.startDateToString = dayjs(this.startTime).toString();
@@ -82,8 +95,19 @@ export class DayjsPage implements OnInit {
     this.tzNames = Intl.supportedValuesOf("timeZone");
     this.tzGuess = dayjs.tz.guess();
 
-    this.tzString = dayjs.tz(dayjs.tz.guess()).toDate().toISOString();
+    this.tzString = dayjs().tz(dayjs.tz.guess()).toDate().toISOString();
     this.tzZoneAbbr = dayjs().tz('Asia/Kuala_Lumpur').format('z');
+
+    this.tzStart = dayjs('2024-01-08T08:10:00.000Z').tz('Asia/Kuala_Lumpur').toDate();
+    
+    // dayjs.tz(date?:,timezone?:) is broken.
+    this.tzStartWrong = dayjs.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').toDate();
+
+    this.tzThreeParameter = dayjs.tz('2024-01-08T08:10:00.000Z', 'YYYY-MM-DD h:mmA', 'Asia/Kuala_Lumpur').toDate();
+
+    this.tzNewDate = dayjs().tz('Asia/Kuala_Lumpur').format('z');
+
+    this.tzFormat = dayjs.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').format("Z");
   }
 
   ngOnInit(): void {

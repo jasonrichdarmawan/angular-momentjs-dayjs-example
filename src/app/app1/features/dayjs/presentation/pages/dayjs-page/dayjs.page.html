@@ -101,12 +101,42 @@
     </tr>
 
     <tr>
-        <td>dayjs.tz(dayjs.tz.guess()).toDate().toISOString():</td>
+        <td>dayjs().tz(dayjs.tz.guess()).toDate().toISOString():</td>
         <td>{{tzString}}</td>
     </tr>
 
     <tr>
         <td>dayjs().tz('Asia/Kuala_Lumpur').format('z'):</td>
         <td>{{tzZoneAbbr}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs('2024-01-08T08:10:00.000Z').tz('Asia/Kuala_Lumpur').toDate():</td>
+        <td>{{tzStart}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').toDate():</td>
+        <td style="text-decoration: line-through;">{{tzStartWrong}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs.tz('2024-01-08T08:10:00.000Z', 'YYYY-MM-DD h:mmA', 'Asia/Kuala_Lumpur').toDate()</td>
+        <td>{{tzThreeParameter}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs(new Date()).tz('Asia/Kuala_Lumpur')</td>
+        <td>{{tzNewDate}}</td>
+    </tr>
+
+    <tr>
+        <td>dayjs.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').format("Z")</td>
+        <td>{{tzFormat}}</td>
+    </tr>
+
+    <tr>
+        <td>moment('21:00', 'HH:mm')</td>
+        <td>{{dayjs('21:00', 'HH:mm')}}</td>
     </tr>
 </table>

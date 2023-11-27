@@ -109,4 +109,35 @@
         <td>momentTz.tz('Asia/Kuala_Lumpur').zoneAbbr():</td>
         <td>{{tzZoneAbbr}}</td>
     </tr>
+
+
+    <tr>
+        <td>moment('2024-01-08T08:10:00.000Z').tz('Asia/Kuala_Lumpur').toDate():</td>
+        <td>{{tzStart}}</td>
+    </tr>
+
+    <tr>
+        <td>moment.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').toDate():</td>
+        <td>{{tzStartWrong}}</td>
+    </tr>
+
+    <tr>
+        <td>moment.tz('2024-01-08T08:10:00.000Z', 'YYYY-MM-DD h:mmA', 'Asia/Kuala_Lumpur').toDate()</td>
+        <td>{{tzThreeParameter}}</td>
+    </tr>
+
+    <tr>
+        <td>moment(new Date()).tz('Asia/Kuala_Lumpur')</td>
+        <td>{{tzNewDate}}</td>
+    </tr>
+
+    <tr>
+        <td>moment.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').format("Z")</td>
+        <td>{{tzFormat}}</td>
+    </tr>
+
+    <tr>
+        <td>moment('21:00', 'HH:mm')</td>
+        <td>{{moment('21:00', 'HH:mm')}}</td>
+    </tr>
 </table>

@@ -9,6 +9,8 @@ import * as momentTz from 'moment-timezone';
   styleUrls: ['./momentjs.page.scss']
 })
 export class MomentjsPage implements OnInit {
+  moment = moment;
+
   startTime: string;
   startDateToString: string;
   startDateFormatYYYYMMDD: string;
@@ -42,6 +44,15 @@ export class MomentjsPage implements OnInit {
   tzGuess: string;
   tzString: string;
   tzZoneAbbr: string;
+
+  tzStart: Date;
+  tzStartWrong: Date;
+
+  tzNewDate: string;
+
+  tzFormat: string;
+
+  tzThreeParameter: Date;
 
   constructor() {
     this.startTime = "2023-11-06 20:30:26.123";
@@ -77,6 +88,15 @@ export class MomentjsPage implements OnInit {
     this.tzGuess = momentTz.tz.guess();
     this.tzString = momentTz.tz(moment.tz.guess()).toDate().toISOString();
     this.tzZoneAbbr = momentTz.tz('Asia/Kuala_Lumpur').zoneAbbr();
+
+    this.tzStart = moment('2024-01-08T08:10:00.000Z').tz('Asia/Kuala_Lumpur').toDate();
+    this.tzStartWrong = moment.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').toDate();
+
+    this.tzThreeParameter = moment.tz('2024-01-08T08:10:00.000Z', 'YYYY-MM-DD h:mmA', 'Asia/Kuala_Lumpur').toDate();
+
+    this.tzNewDate = moment(new Date()).tz('Asia/Kuala_Lumpur').format('z');
+
+    this.tzFormat = moment.tz('2024-01-08T08:10:00.000Z', 'Asia/Kuala_Lumpur').format("Z");
   }
 
   ngOnInit(): void {
